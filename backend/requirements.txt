@@ -1,0 +1,9 @@
+langchain
+langgraph
+langchain-community
+tiktoken
+langchain-openai
+langchain-text-splitters
+langchain-core
+
+python-dotenv
