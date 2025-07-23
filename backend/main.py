@@ -20,16 +20,14 @@ def chat(query: str):
     try:
         if query.lower() in ["exit", "quit"]:
             return "Goodbye!"
-        memory.chat_memory.add_user_message(query)
+        memory_vars = memory.load_memory_variables({})
         result = graph.invoke({
             "input": query,
-            "memory": memory.load_memory_variables({}),
-            "docs": [],     
-            "output": ""   
+            "memory": memory_vars,
+            "docs": [],
+            "output": ""
         })
-        print("Graph memory so far:", memory.chat_memory.messages)
         bot_reply = result["output"]
-        memory.chat_memory.add_ai_message(bot_reply)
         return bot_reply
     except KeyboardInterrupt:
         pass
