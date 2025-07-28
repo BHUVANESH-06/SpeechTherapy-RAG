@@ -5,5 +5,5 @@ tiktoken
 langchain-openai
 langchain-text-splitters
 langchain-core
-
+fastapi
 python-dotenv

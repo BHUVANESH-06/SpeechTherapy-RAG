@@ -23,4 +23,6 @@ def generate_response(user_input, docs, memory):
             Answer:"""
     print(f"[PROMPT SENT TO LLM]\n{prompt}")
     response = llm.invoke(prompt)
-    return response.content if hasattr(response, 'content') else str(response)
+    content = response.content if hasattr(response, 'content') else str(response)
+    clean_content = ' '.join(content.split())
+    return clean_content
