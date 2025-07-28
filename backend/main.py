@@ -17,6 +17,7 @@ print("TherapyBot is ready! Ask your therapy questions:\n")
 
 @app.get("/chat", response_model=str)
 def chat(query: str):
+    print(f"[USER INPUT] {query}")
     try:
         if query.lower() in ["exit", "quit"]:
             return "Goodbye!"

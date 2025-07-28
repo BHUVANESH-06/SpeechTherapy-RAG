@@ -7,4 +7,5 @@ langchain-text-splitters
 langchain-core
 fastapi
 uvicorn
+pypdf
 python-dotenv
