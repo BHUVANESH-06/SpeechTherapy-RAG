@@ -6,4 +6,5 @@ langchain-openai
 langchain-text-splitters
 langchain-core
 fastapi
+uvicorn
 python-dotenv
