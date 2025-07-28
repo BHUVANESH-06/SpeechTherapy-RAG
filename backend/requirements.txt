@@ -14,4 +14,3 @@ python-dotenv
 httpx
 tenacity
 httpx-sse
-pickle
