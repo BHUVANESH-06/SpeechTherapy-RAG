@@ -1,15 +1,24 @@
-# Use official Python image
-FROM python:3.11-slim
+# syntax=docker/dockerfile:1
 
-# Set working directory
+# ===== Backend (Python) =====
+FROM python:3.11-slim AS backend
+
 WORKDIR /app
-
-# Install dependencies
-COPY requirements.txt .
+COPY backend/ /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the app code
-COPY . .
+# ===== Frontend (React) =====
+FROM node:18 AS frontend
 
-# Run the app
+WORKDIR /frontend
+COPY frontend/ /frontend/
+RUN npm install && npm run build
+
+# ===== Final image =====
+FROM python:3.11-slim
+
+WORKDIR /app
+COPY --from=backend /app /app
+COPY --from=frontend /frontend/dist /app/static
+
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
