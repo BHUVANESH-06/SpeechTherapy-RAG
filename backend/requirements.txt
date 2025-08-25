@@ -3,6 +3,7 @@ langgraph
 langchain-core
 langchain-community
 langchain-openai
+langchain-groq
 langchain-text-splitters
 tiktoken
 sentence-transformers
